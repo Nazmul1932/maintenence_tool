@@ -40,4 +40,3 @@ if __name__ == '__main__':
 
     root.mainloop()
 
-# https://www.geeksforgeeks.org/draw-control-flow-graph-using-pycfg-python/

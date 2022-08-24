@@ -113,4 +113,3 @@ if __name__ == "__main__":
     argn = len(sys.argv)
     main("whiletest.py")
 
-# https://github.com/IntelLabs/HPAT.jl/blob/master/examples/queries_devel/q26/halstead-calculator.py

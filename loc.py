@@ -27,4 +27,3 @@ print('\nTotal Blank lines:   ' + str(totalBlankLineCount))
 print('\nTotal Comment lines: ' + str(totalCommentLineCount))
 print('\nTotal Code lines:    ' + str(lineCount - totalBlankLineCount - totalCommentLineCount))
 
-# https://github.com/rrwick/LinesOfCodeCounter/blob/master/lines_of_code_counter.py
