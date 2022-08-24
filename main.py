@@ -8,12 +8,9 @@ if __name__ == '__main__':
 
     parser.add_argument('pythonfile', help='The python file to be analyzed')
     args = parser.parse_args()
-    arcs = []
 
-    cfg = PyCFG()
-    cfg.gen_cfg(slurp(args.pythonfile).strip())
-    g = CFGNode.to_graph(arcs)
-    g.draw(args.pythonfile + '.png', prog='dot')
+    PyCFG().gen_cfg(slurp(args.pythonfile).strip())
+    CFGNode.to_graph([]).draw(args.pythonfile + '.png', prog='dot')
 
     # Draw using tkinter.
     root = tk.Tk()
@@ -22,12 +19,12 @@ if __name__ == '__main__':
     img1 = img1.resize((800, 600), Image.ANTIALIAS)
     img = ImageTk.PhotoImage(img1)
 
-    background = "blue"
+    background = "gray"
 
     panel = tk.Label(root, height=600, image=img)
     panel.pack(side="top", fill="both", expand="yes")
-    nodes = g.number_of_nodes()  # no. of nodes.
-    edges = g.number_of_edges()  # no. of Edges.
+    nodes = CFGNode.to_graph([]).number_of_nodes()  # no. of nodes.
+    edges = CFGNode.to_graph([]).number_of_edges()  # no. of Edges.
     complexity = edges - nodes + 2  # Cyclomatic complexity
 
     frame = tk.Frame(root, bg=background)
