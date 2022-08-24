@@ -40,7 +40,7 @@ def quicksort(l, r, nums):
     if len(nums) == 1:  # Terminating Condition for recursion. VERY IMPORTANT!
         return nums
     if l < r:
-        pi = partition(l, r, nums)
+        # pi = partition(l, r, nums)
         quicksort(l, pi - 1, nums)  # Recursively sorting the left values
         quicksort(pi + 1, r, nums)  # Recursively sorting the right values
     return nums
