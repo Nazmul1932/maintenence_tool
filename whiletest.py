@@ -2,12 +2,16 @@
 # while a <= 0:
 #     if a == 5:
 #         print(a)
+#     elif a == 6:
+#         print(a)
+#     else:
+#         print(a)
 #     a += 1
 # print("exited")
 # num1 = 1.5
 # num2 = 6.3
 #
-# # Add two numbers
+# Add two numbers
 # sum = num1 + num2
 #
 # # Display the sum
@@ -19,7 +23,7 @@
 #
 # # Driver method
 # print("Area is %.6f" % findArea(5))
-#
+
 def partition(l, r, nums):
     # Last element will be the pivot and the first element the pointer
     pivot, ptr = nums[r], l
@@ -44,12 +48,20 @@ def quicksort(l, r, nums):
         quicksort(l, pi - 1, nums)  # Recursively sorting the left values
         quicksort(pi + 1, r, nums)  # Recursively sorting the right values
     return nums
+#
+#
+# example = [4, 5, 1, 2, 3]
+# result = [1, 2, 3, 4, 5]
+# print(quicksort(0, len(example) - 1, example))
+# example = [2, 5, 6, 1, 4, 6, 2, 4, 7, 8]
+# result = [1, 2, 2, 4, 4, 5, 6, 6, 7, 8]
+# # As you can see, it works for duplicates too
+# print(quicksort(0, len(example) - 1, example))
 
+"""
+#hello
+hello
+"""
 
-example = [4, 5, 1, 2, 3]
-result = [1, 2, 3, 4, 5]
-print(quicksort(0, len(example) - 1, example))
-example = [2, 5, 6, 1, 4, 6, 2, 4, 7, 8]
-result = [1, 2, 2, 4, 4, 5, 6, 6, 7, 8]
-# As you can see, it works for duplicates too
-print(quicksort(0, len(example) - 1, example))
+'''
+'''
