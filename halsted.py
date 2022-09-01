@@ -1,12 +1,14 @@
 import sys
 import math
 
-operators = ["=", "+", "-", "*", "\\", "^", "\"", "\'", ".", "~", "|", "[", "]", "(", ")", ";", ":", "%", ",", "!", "<",
-             ">", "&", "{", "}"]
+operators = [
+                "=", "+", "-", "*", "\\", "^", "\"", "\'", ".", "~", "|", "[", "]", "(", ")", ";", ":", "%", ",", "!", "<",
+                ">", "&", "{", "}", "print", "function", "global", "for", "end", "while", "if", "else", "elseif", "break",
+                "switch", "case", "otherwise", "try", "catch", "end", "const", "import", "export", "type", "return", "range", "len",
+                "def", "true", "false", "in"
+             ]
 
-keywords = ["function", "global", "for", "end", "while", "if", "else", "elseif", "break", "switch", "case", "otherwise",
-            "try", "catch", "end", "const", "import", "export", "type", "return",
-            "true", "false", "in", "abstract", "module", "continue", "do", "join"]
+keywords = []
 
 singleline_comment_op = "#"
 
@@ -21,7 +23,6 @@ def filter_token(token):
 
 
 def break_token(token):
-    print(token)
     op_pos = len(token)
     for op in operators:
         if token.startswith(op):
@@ -48,6 +49,8 @@ def break_token(token):
 
     return token[op_pos:]
 
+    return token[op_pos:]
+
 
 def measure_halstead(N1, N2, n1, n2):
     Vocabulary = n1 + n2
@@ -62,16 +65,13 @@ def measure_halstead(N1, N2, n1, n2):
 
 
 def filter_comments(sourcecode_file):
-
     singleline_comment_op_pos = -1
     filtered_lines = []
     inside_comment = False
 
     with open(sourcecode_file, 'r') as f:
         for line in f:
-            if not line.strip():
-                continue
-
+            
             if singleline_comment_op in line:
                 singleline_comment_op_pos = line.find(singleline_comment_op)
 
@@ -91,18 +91,10 @@ def filter_comments(sourcecode_file):
 
 def main(sourcecode_file):
     lines = filter_comments(sourcecode_file)
-
-    print("Lines of Code: ", len(lines))
     for line in lines:
         tokens = line.strip().split()
         for token in tokens:
             filter_token(token)
-
-    for key, value in n1.items():
-        print(key + " = " + str(value))
-
-    for key, value in n2.items():
-        print(key + " = " + str(value))
 
     print("Operator(n1): ", n1)
     print("Operand(n2): ", n2)
@@ -112,4 +104,3 @@ def main(sourcecode_file):
 if __name__ == "__main__":
     argn = len(sys.argv)
     main("whiletest.py")
-
